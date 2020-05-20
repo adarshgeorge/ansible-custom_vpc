@@ -14,7 +14,7 @@ Here the playbook creating.
  
 An EC2 with full administrative access roles.  Ansilble, Python 3, boto and boto3 should be installed on this instance. 
 
-**Launch EC2 instance**
+**Launch Ansible Master EC2 instance**
 
 Userdata
 ```
@@ -35,7 +35,7 @@ AWS Console > Security, Identity, & Compliance > IAM > Access management > Roles
 Select EC2 > Next: Permissions > Search "AmazonEC2FullAccess" > Add name and description > Create Role
 ```
 
-Now we need attach the role to the creatde ansible EC2 instance.
+Now we need attach the role to the created ansible EC2 instance.
 ```
 Instances > Ansible Server > Action > Instance Settings >  Attach/Replace IAM Role > Select roles "Ansible_Role" > Apply
 ```
