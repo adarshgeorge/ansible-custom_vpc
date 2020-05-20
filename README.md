@@ -14,29 +14,31 @@ Here the playbook creating.
  
 An EC2 with full administrative access roles.  Ansilble, Python 3, boto and boto3 should be installed on this instance. 
 
-### Launch EC2 instance
+**Launch EC2 instance**
 
 Userdata
 ```
 
 #!/bin/bash
 sudo amazon-linux-extras install ansible2 -y
-
+sudo yum install python3 -y
+sudo pip3 install boto3
 ```
 
 
-Creating Amazon Rols
+**Create an IAM Role with Policy AmazonEC2FullAccess and attach it to the Ansible master instance.**
 ```
-Console > Security, Identity, & Compliance > IAM > Access management > Roles > Create role
+AWS Console > Security, Identity, & Compliance > IAM > Access management > Roles > Create role
 
 Select EC2 > Next: Permissions > Search "AmazonEC2FullAccess" > Add name and description > Create Role
 ```
+
 Now we need attach the role to the creatde ansible EC2 instance.
 ```
 Instances > Ansible Server > Action > Attach/Replace IAM Role > Select roles "Ansible_Role" > Apply
 ```
 
-Ansible Playbook
+**Ansible Playbook**
 
 $ vim custom_vpc.yml
 
@@ -325,7 +327,7 @@ $ vim custom_vpc.yml
         exact_count: "{{ database_exact_count }}"
 ```
 
-Run the Playbook
+#### Run the Playbook
 
 ```
 $ ansible-playbook custom_vpc.yml 
