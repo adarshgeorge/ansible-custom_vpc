@@ -20,9 +20,11 @@ Userdata
 ```
 
 #!/bin/bash
-sudo amazon-linux-extras install ansible2 -y
-sudo yum install python3 -y
+sudo yum install python3 pyhton3-pip -y
+sudo pip3 install ansible
 sudo pip3 install boto3
+sudo pip3 install boto
+
 ```
 
 
@@ -35,7 +37,7 @@ Select EC2 > Next: Permissions > Search "AmazonEC2FullAccess" > Add name and des
 
 Now we need attach the role to the creatde ansible EC2 instance.
 ```
-Instances > Ansible Server > Action > Attach/Replace IAM Role > Select roles "Ansible_Role" > Apply
+Instances > Ansible Server > Action > Instance Settings >  Attach/Replace IAM Role > Select roles "Ansible_Role" > Apply
 ```
 
 **Ansible Playbook**
