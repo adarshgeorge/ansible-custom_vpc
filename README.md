@@ -37,7 +37,7 @@ Select EC2 > Next: Permissions > Search "AmazonEC2FullAccess" > Add name and des
 
 Now we need attach the role to the created ansible EC2 instance.
 ```
-Instances > Ansible Server > Action > Instance Settings >  Attach/Replace IAM Role > Select roles "Ansible_Role" > Apply
+EC2 > Ansible Server > Action > Instance Settings >  Attach/Replace IAM Role > Select roles "Ansible_Role" > Apply
 ```
 
 **Ansible Playbook**
